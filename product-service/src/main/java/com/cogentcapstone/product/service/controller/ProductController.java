@@ -1,5 +1,6 @@
 package com.cogentcapstone.product.service.controller;
 
+import com.cogentcapstone.product.service.exceptions.InsufficientQuantityException;
 import com.cogentcapstone.product.service.model.ProductRequest;
 import com.cogentcapstone.product.service.model.ProductResponse;
 import com.cogentcapstone.product.service.service.ProductService;
@@ -23,6 +24,22 @@ public class ProductController {
     @GetMapping("/{productId}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable("productId") Long productId) {
         ProductResponse productResponse = productService.getProductById(productId);
+        if (productResponse == null) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(productResponse, HttpStatus.OK);
+    }
+
+    //http://localhost:9002/api/products/reduceQuantity/1?quantity=5
+    @PutMapping("/reduceQuantity/{productId}")
+    public ResponseEntity<Void> reduceQuantity(@PathVariable("productId") Long productId, @RequestParam Long quantity) {
+        try {
+            productService.reduceQuantity(productId, quantity);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (InsufficientQuantityException e) {
+            throw e;  // Rethrow to be handled by @ControllerAdvice
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
