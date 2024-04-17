@@ -8,5 +8,5 @@ spring:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/ttran8800/Cogent-Capstone
           clone-on-start: true
