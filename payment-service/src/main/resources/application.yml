@@ -1,11 +1,11 @@
 server:
-  port: 9001
+  port: 9003
 
 spring:
   application:
-    name: ORDER-SERVICE
+    name: PAYMENT-SERVICE
   datasource:
-    url: jdbc:mysql://localhost:3306/orderdb?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/paymentdb?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

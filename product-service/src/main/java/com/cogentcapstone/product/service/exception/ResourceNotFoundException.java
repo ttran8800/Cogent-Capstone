@@ -1,4 +1,4 @@
-package com.cogentcapstone.product.service.exceptions;
+package com.cogentcapstone.product.service.exception;
 
 import lombok.Data;
 
