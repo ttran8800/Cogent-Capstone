@@ -1,6 +1,6 @@
 package com.cogentcapstone.product.service.controller;
 
-import com.cogentcapstone.product.service.exceptions.InsufficientQuantityException;
+import com.cogentcapstone.product.service.exception.InsufficientQuantityException;
 import com.cogentcapstone.product.service.model.ProductRequest;
 import com.cogentcapstone.product.service.model.ProductResponse;
 import com.cogentcapstone.product.service.service.ProductService;

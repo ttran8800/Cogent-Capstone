@@ -1,4 +1,4 @@
-package com.cogentcapstone.product.service.exceptions;
+package com.cogentcapstone.product.service.exception;
 
 import com.cogentcapstone.product.service.payload.ErrorDetailPayload;
 import org.springframework.http.HttpStatus;
